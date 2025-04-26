@@ -23,12 +23,18 @@ def validorder(order: Order):
     net = 0
 
     for item in order.items:
-        if item.type == 'payment':
-            net += item.amount
-        elif item.type == 'product' and:
-            net -= item.amount * item.quantity    
-        else:
-            return "Invalid item type: %s" % item.type
+        if  0 <= item.amount and item.amount <= Max_amount
+            if item.type == 'payment':
+                net += item.amount
+            elif item.type == 'product':
+                if  Min_quantity <= item.quantity <= Max_quantity:
+                    net -= item.amount * item.quantity    
+                else 
+                    return "Invalid item quantity: %s" item.quantity
+            else:
+                return "Invalid item type: %s" % item.type
+        else 
+            return "Invalid item amout: %s" % item.amount
 
     if net != 0:
         return "Order ID: %s - Payment imbalance: $%0.2f" % (order.id, net)
