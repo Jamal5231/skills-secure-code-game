@@ -15,6 +15,7 @@ from collections import namedtuple
 
 Order = namedtuple('Order', 'id, items')
 Item = namedtuple('Item', 'type, description, amount, quantity')
+
 Max_amount = 100000
 Max_quantity = 100
 Min_quantity = 0
