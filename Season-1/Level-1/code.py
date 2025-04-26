@@ -26,7 +26,7 @@ def validorder(order: Order):
         if item.type == 'payment':
             net += item.amount
         elif item.type == 'product' and:
-                net -= item.amount * item.quantity    
+            net -= item.amount * item.quantity    
         else:
             return "Invalid item type: %s" % item.type
 
