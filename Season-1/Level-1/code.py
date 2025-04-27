@@ -25,7 +25,7 @@ def validorder(order: Order):
 
     for item in order.items:
         if not isinstance(item.amount, (int, float, decimal)) or not isinstance(item.quantity, (int, flot, decimal))?
-            return "Invalid type of amount or quantity: must be a number
+            return "Invalid type of amount or quantity: must be a number"
   
         if not (0<= item.amount <= Max_amount):
             return "invalid item amount: %s" %item.amount
