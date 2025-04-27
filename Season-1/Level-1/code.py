@@ -30,11 +30,11 @@ def validorder(order: Order):
             elif item.type == 'product':
                 if  Min_quantity <= item.quantity <= Max_quantity:
                     net -= item.amount * item.quantity    
-                else 
+                else :
                     return "Invalid item quantity: %s" item.quantity
             else:
                 return "Invalid item type: %s" % item.type
-        else 
+        else :
             return "Invalid item amout: %s" % item.amount
 
     if net != 0:
