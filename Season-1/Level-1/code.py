@@ -24,20 +24,22 @@ def validorder(order: Order):
     net = 0
 
     for item in order.items:
-        if  0 <= item.amount and item.amount <= Max_amount
-            if item.type == 'payment':
-                net += item.amount
-            elif item.type == 'product':
-                if  Min_quantity <= item.quantity <= Max_quantity:
-                    net -= item.amount * item.quantity    
-                else :
-                    return "Invalid item quantity: %s" item.quantity
-            else:
-                return "Invalid item type: %s" % item.type
-        else :
-            return "Invalid item amout: %s" % item.amount
+        if not isinstance(item.amount, (int, float, decimal)) or not isinstance(item.quantity, (int, flot, decimal))?
+            return "Invalid type of amount or quantity: must be a number
+  
+        if not (0<= item.amount <= Max_amount):
+            return "invalid item amount: %s" %item.amount
+        
+        if item.type == 'payment':
+            net += item.amount
+        elif item.type == 'product':
+            if not Min_quantity <= item.quantity <= Max_quantity:
+                return "Invalid item quantity: %s" item.quantity
+            net -= item.amount * item.quantity    
+        else:
+           return "Invalid item type: %s" % item.type
 
-    if net != 0:
+    if abs(net) > 0.001:
         return "Order ID: %s - Payment imbalance: $%0.2f" % (order.id, net)
     else:
         return "Order ID: %s - Full payment received!" % order.id
